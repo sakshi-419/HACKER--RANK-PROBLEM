@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    float amount;
+    float taxable_amount;
+    float tax;
+    tax = 0;
+    scanf("%f",&amount);
+    if(amount<0)
+    {
+        printf("INVALID");
+    }
+    else if (amount <= 250000) 
+    {
+        printf("%.2f\n", tax);
+    }
+    else if (amount > 250000 && amount <= 500000) 
+    {
+        
+        taxable_amount = (amount - 250000);
+        tax = (taxable_amount*0.05);
+        printf("%.2f",tax);
+    }
+    else if (amount > 500000 && amount <= 1000000) 
+    {
+        
+        taxable_amount = amount-250000;
+        tax = (250000*0.05)+((taxable_amount-250000)*0.2); 
+        printf("%.2f\n", tax);
+    }
+    else if (amount > 1000000) 
+    {
+        
+        taxable_amount = amount - 250000;
+        tax = ((250000*0.05)+(500000*0.2)+(taxable_amount-750000)*0.3); 
+        printf("%.2f\n",tax);
+    }
+    
+    return 0;
+}
